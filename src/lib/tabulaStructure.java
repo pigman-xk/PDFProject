@@ -2,9 +2,10 @@ package lib;
 
 import technology.tabula.Table;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class tabulaStructure {
+public class tabulaStructure implements Serializable {
     private int tableIndex = 0;
     private int tabulaReadType = 0;//若该结构为纯表格，则0默认按行读取，1按列读取
     private boolean isReadTabulaFirstLine = true;//是否读表格首行

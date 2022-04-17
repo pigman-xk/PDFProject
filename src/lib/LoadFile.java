@@ -28,7 +28,6 @@ public class LoadFile {
     public LoadFile(File file) throws IOException {
         pdfFile = file;
         pd = PDDocument.load(pdfFile);
-
         processBasicString();
     }
 
@@ -57,7 +56,7 @@ public class LoadFile {
         int totalPages = pd.getNumberOfPages();
         ObjectExtractor oe = new ObjectExtractor(pd);
         BasicExtractionAlgorithm sea = new BasicExtractionAlgorithm();
-        for(int pageIndex = 1 ; pageIndex < totalPages ; pageIndex++){
+        for(int pageIndex = 1 ; pageIndex < totalPages+1 ; pageIndex++){
             Page page = oe.extract(pageIndex);
             List<Table> table = sea.extract(page);
             for(Table tables: table) {
@@ -81,7 +80,7 @@ public class LoadFile {
         int totalPages = pd.getNumberOfPages();
         ObjectExtractor oe = new ObjectExtractor(pd);
         BasicExtractionAlgorithm sea = new BasicExtractionAlgorithm();
-        for(int pageIndex = 1 ; pageIndex < totalPages ; pageIndex++){
+        for(int pageIndex = 1 ; pageIndex < totalPages+1 ; pageIndex++){
             Page page = oe.extract(pageIndex);
             List<Table> table = sea.extract(page);
             ArrayList<String> readStringByLine = new ArrayList<>();
@@ -114,7 +113,7 @@ public class LoadFile {
         int totalPages = pd.getNumberOfPages();
         ObjectExtractor oe = new ObjectExtractor(pd);
         SpreadsheetExtractionAlgorithm sea = new SpreadsheetExtractionAlgorithm();
-        for(int i = 1 ; i < totalPages ; i++){
+        for(int i = 1 ; i <= totalPages ; i++){
             Page page = oe.extract(i);
             List<Table> tables = sea.extract(page);
             if(tables.size()>0){

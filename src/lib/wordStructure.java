@@ -1,8 +1,9 @@
 package lib;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class wordStructure {
+public class wordStructure implements Serializable {
     private int WordIndex = 0;
     private int WordID = 0;
     private String wordHeadName = "null";

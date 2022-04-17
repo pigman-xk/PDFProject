@@ -59,5 +59,60 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://D:/毕业设计依赖包/poi-5.0.0" />
+        </CLASSES>
+        <JAVADOC>
+          <root url="file://D:/毕业设计依赖包/poi-5.0.0/docs/apidocs/dev" />
+        </JAVADOC>
+        <SOURCES />
+        <jarDirectory url="file://D:/毕业设计依赖包/poi-5.0.0" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://D:/毕业设计依赖包/xmlbeans-5.0.3/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://D:/毕业设计依赖包/xmlbeans-5.0.3/lib" />
+        </SOURCES>
+        <jarDirectory url="file://D:/毕业设计依赖包/xmlbeans-5.0.3/lib" recursive="false" />
+        <jarDirectory url="file://D:/毕业设计依赖包/xmlbeans-5.0.3/lib" recursive="false" type="SOURCES" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://D:/毕业设计依赖包/commons-collections4-4.4" />
+        </CLASSES>
+        <JAVADOC>
+          <root url="file://D:/毕业设计依赖包/commons-collections4-4.4/apidocs" />
+        </JAVADOC>
+        <SOURCES>
+          <root url="file://D:/毕业设计依赖包/commons-collections4-4.4" />
+        </SOURCES>
+        <jarDirectory url="file://D:/毕业设计依赖包/commons-collections4-4.4" recursive="false" />
+        <jarDirectory url="file://D:/毕业设计依赖包/commons-collections4-4.4" recursive="false" type="SOURCES" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://D:/毕业设计依赖包/commons-compress-1.21" />
+        </CLASSES>
+        <JAVADOC>
+          <root url="file://D:/毕业设计依赖包/commons-compress-1.21/apidocs" />
+        </JAVADOC>
+        <SOURCES>
+          <root url="file://D:/毕业设计依赖包/commons-compress-1.21" />
+        </SOURCES>
+        <jarDirectory url="file://D:/毕业设计依赖包/commons-compress-1.21" recursive="false" />
+        <jarDirectory url="file://D:/毕业设计依赖包/commons-compress-1.21" recursive="false" type="SOURCES" />
+      </library>
+    </orderEntry>
   </component>
 </module>

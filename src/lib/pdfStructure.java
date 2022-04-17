@@ -1,23 +1,25 @@
 package lib;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 /*
 1.pdf结构为树结构，每个子结构只对应一个父结构，每个父结构可以有多个子结构
 * \*/
-public class pdfStructure {
+public class pdfStructure implements Serializable {
     private int indexInFatherStructure = -1;
     private pdfStructure fatherStructure = null;//父结构
     private ArrayList<pdfStructure> sonStructures = new ArrayList<>();//子结构
     private int partsNum = 1;//分割数，默认为1，即不分割
     private ArrayList<String> divideString = new ArrayList<>(); // 文档从上到下的顺序 对应 index 从小到大顺序
     private int[] selectSection = null; //默认从文首开始，为part1，例如若有divideString则文首到第一个divideString就是part1
-    private int partType = -1;//0：纯长文本，1：纯字段，2：纯表格，-1默认为混合信息
+    private int partType = -1;//0：纯字段，1：纯长文本，2：纯表格，3默认为混合信息
     private int tabulaNum = 0;//表格默认为0个
     private boolean canRead = false;
     private int firstLine = 0;//是否读页眉，读为0，不读为1
     private int endLine = 0;//是否读页尾，读为0，不读为1
     //可选部分
     private int readMode = -1;//0按字段读取；1按长文本读取;-1表示此结构尚未达到能读取的程度
+    private String longTxtHead = "null";
     //字段相关可选
     private String divideMark = " ";//倘若已达到可读阶段且选择按字段，则设置分隔符,默认按“ ”(空格)进行分割读取
     private int WordNum = 0;//总共有多少个字段，包含空字段在内
@@ -39,7 +41,13 @@ public class pdfStructure {
 //    }
 
     public void addSonStruture(pdfStructure son){
-        sonStructures.add(son);
+        if(sonStructures!=null){
+            sonStructures.add(son);
+        }else{
+            sonStructures = new ArrayList<>();
+            sonStructures.add(son);
+        }
+
     }
 
     public void setSelectWord(ArrayList<wordStructure> selectWord) {
@@ -101,6 +109,10 @@ public class pdfStructure {
         this.divideMark = divideMark;
     }
 
+    public void setLongTxtHead(String longTxtHead) {
+        this.longTxtHead = longTxtHead;
+    }
+
     public void setDivideString(ArrayList<String> divideString) {
         this.divideString = divideString;
     }
@@ -152,7 +164,9 @@ public class pdfStructure {
     public ArrayList<wordStructure> getSelectWord() {
         return selectWord;
     }
-
+    public String getLongTxtHead(){
+        return longTxtHead;
+    }
 
     public int getIndexInFatherStructure() {
         return indexInFatherStructure;

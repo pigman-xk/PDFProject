@@ -21,7 +21,7 @@ public class readMachine {
 
     public String[][] readTable(Table table , int starLine){
         List<List<RectangularTextContainer>> rows = table.getRows();
-        String[][] tabula = new String[rows.size()][];
+        String[][] tabula = new String[rows.size()-starLine][];
         for(int i=starLine; i<rows.size(); i++) {
             int endCell = 0;
             List<RectangularTextContainer> cells = rows.get(i);
@@ -34,7 +34,7 @@ public class readMachine {
             for(int j=0; j<cells.size()-endCell; j++) {
                 tabulacell[j+endCell/2] = cells.get(j).getText(false);
             }
-            tabula[i] = tabulacell;
+            tabula[i-starLine] = tabulacell;
         }
         return tabula;
     }
@@ -46,6 +46,7 @@ public class readMachine {
         int k = 0;
         for(Map.Entry<Integer,String[]> set : tableAndDivideString.entrySet()){
             tableIndexs[k] = set.getKey();
+            k++;
         }
         Arrays.sort(tableIndexs);
         int tableIndex = 0;
@@ -86,6 +87,7 @@ public class readMachine {
         for(Map.Entry<Integer,Integer> set : typeHashMap.entrySet()){
             int index = set.getKey();
             indexs[k] = index;
+            k++;
         }
         Arrays.sort(indexs);
         int tableIndex = 1;
@@ -106,6 +108,7 @@ public class readMachine {
         for(Map.Entry<Integer,Integer> set : typeHashMap.entrySet()){
             int index = set.getKey();
             indexs[k] = index;
+            k++;
         }
         Arrays.sort(indexs);
         for(int i = 0 ; i < indexs.length ; i++){
